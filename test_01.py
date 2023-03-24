@@ -36,18 +36,11 @@ class TestMySQLToSolr(unittest.TestCase):
         results = self.solr.search(q='*:*', fl='sistema_s,numero_s')
 
         # Testar quantidade de registros
-        print(len(results))
-        print(len(data))
         self.assertEqual(len(results), len(data))
 
         # Testar conteúdo dos registros
         for i, result in enumerate(results):
-            print(str(result['sistema_s']))
-            print(str(data[i]['sistema']))
             self.assertEqual(str(result['sistema_s']), str(data[i]['sistema']))
-
-            print(result['numero_s'])
-            print(data[i]['numero'])
             self.assertEqual(str(result['numero_s']), str(data[i]['numero']))
 
 
